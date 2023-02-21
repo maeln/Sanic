@@ -1,0 +1,10 @@
+[package]
+name = "sanic"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+byteorder = "1.4.3"
+bytes = "1.4.0"
+clap = { version = "4.1.6", features = ["derive"] }
+thiserror = "1.0.38"
