@@ -1,19 +1,19 @@
 use byteorder::ReadBytesExt;
 use clap::{Parser, Subcommand};
-use tracing::{error, info, warn};
 use std::collections::HashMap;
 use std::fs::File;
-use std::io::{Read, Write, Cursor};
+use std::io::{Cursor, Read, Write};
 use std::path::Path;
 use std::sync::atomic::{AtomicUsize, Ordering};
-use std::sync::mpsc::{Sender, Receiver};
+use std::sync::mpsc::{Receiver, Sender};
 use std::sync::{Arc, Mutex};
 use std::{net::UdpSocket, path::PathBuf};
 use thiserror::Error;
+use tracing::{error, info, warn};
 
+mod client;
 mod protocol;
 mod server;
-mod client;
 
 const MTU: usize = 1500;
 const BUF_CAPACITY: usize = 8 * 1024 * 1024; // 8Mib
